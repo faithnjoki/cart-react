@@ -3,12 +3,16 @@ import React, { Component } from 'react';
 class Counter extends Component {
     state ={
         count:0
+        
 
 
     };
     render() { 
         let classes = 'btn m-2 btn-';
-        classes += this.state.count === 0 ? 'danger': 'primary';
+        if(this.state.count === 0)
+         classes += 'danger'
+        else 
+         classes += 'primary'
         
         return (
             <div>
