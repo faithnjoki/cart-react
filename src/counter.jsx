@@ -13,12 +13,17 @@ class Counter extends Component {
             <div>
                 <p className= { this.getBadgeClasses() } >{this.formatCount()}</p>
                 <button  className = 'btn btn-secondary m-2'>Add</button>
-                <ul>
-           
-                    {this.state.fnames.map(fname => <li key={ fname }> {fname} </li>) }
-                </ul>
+                {this.state.fnames.length === 0 && 'Please add a name in your list'}
+                {this.checkListNum()}
             </div>
         );
+    }
+
+    checkListNum(){
+        return this.state.fnames.length === 0 ? 'Your list of name is empty':
+         <ul>  
+            {this.state.fnames.map(fname => <li key={ fname }> {fname} </li>) }
+        </ul>
     }
 
     getBadgeClasses() {
@@ -30,6 +35,7 @@ class Counter extends Component {
             classes += 'primary';
         return classes;
     }
+   
 
     // method1
     formatCount(){
